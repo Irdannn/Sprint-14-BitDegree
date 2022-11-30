@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <h1>EMI Calculator</h1>
+</header>
+<div class="content">
+    <div class="form">
+        <div>
+            <label>Principal Amount:</label>
+            <input type="text" id="principal" value="200000"/>
+        </div>
+        <div>
+            <label>No. of Years:</label>
+            <input type="text" id="years" value="30"/>
+        </div>
+        <div>
+            <label htmlFor="rate">Interest Rate:</label>
+            <input type="text" id="rate" value="5.0"/>
+        </div>
+        <div>
+            <label htmlFor="calcBtn"></label>
+            <button id="calcBtn">Calculate</button>
+        </div>
+    </div>
+    <h2>EMI: <span id="monthlyPayment" class="currency"></span></h2>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
