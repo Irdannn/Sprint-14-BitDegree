@@ -1,7 +1,7 @@
 // Webpack uses this to work with directories
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // This is the main configuration object.
 // Here, you write different options and tell Webpack what to do
@@ -15,6 +15,14 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     publicPath: "",
     filename: "bundle.js",
+  },
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
   },
 
   module: {
@@ -35,7 +43,6 @@ module.exports = {
           {
             loader: "css-loader",
           },
-          /* ... Other loaders ... */
         ],
       },
       // Now we apply rule for images
@@ -51,11 +58,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "index.html"),
-    }),
     new MiniCssExtractPlugin({
       filename: "bundle.css",
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "src", "index.html"),
     }),
   ],
   // Default mode for Webpack is production.
